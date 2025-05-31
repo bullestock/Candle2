@@ -156,7 +156,8 @@ public:
     QColor toolpathEnd();
     void setToolpathEnd(const QColor& color);
 
-
+    void setHotkeys(const QStringList& hotkeys);
+    
 protected:
     void showEvent(QShowEvent *se);
 

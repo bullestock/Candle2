@@ -34,6 +34,12 @@ frmSettings::frmSettings(QWidget *parent) :
 
     // Set input mask for IP address
     ui->txtIP->setInputMask("000.000.000.000");
+
+    ui->hotkeysTree->setColumnCount(2);
+    QStringList hotkeyLabels;
+    hotkeyLabels.append("Key");
+    hotkeyLabels.append("Function");
+    ui->hotkeysTree->setHeaderLabels(hotkeyLabels);
 }
 
 frmSettings::~frmSettings()
@@ -715,6 +721,21 @@ QColor frmSettings::toolpathEnd()
 void frmSettings::setToolpathEnd(const QColor& color)
 {
     ui->clpToolpathEnd->setColor(color);
+}
+
+void frmSettings::setHotkeys(const QStringList& hotkeys)
+{
+    for (QString hotkey : hotkeys)
+    {
+        QTreeWidgetItem* item = new QTreeWidgetItem(ui->hotkeysTree);
+        QStringList parts = hotkey.split(':');
+        if (parts.size() == 2)
+        {
+            item->setText(0, parts[0]);
+            item->setText(1, parts[1]);
+        }
+        ui->hotkeysTree->addTopLevelItem(item);
+    }
 }
 
 void frmSettings::showEvent(QShowEvent *se)

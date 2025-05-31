@@ -189,6 +189,8 @@ void frmMain::loadSettings()
     ui->cboCommand->addItems(set.value("recentCommands", QStringList()).toStringList());
     ui->cboCommand->setCurrentIndex(-1);
 
+    m_settings->setHotkeys(set.value("hotkeys", QStringList()).toStringList());
+
     m_settingsLoading = false;
 }
 
@@ -313,6 +315,13 @@ void frmMain::saveSettings()
     set.setValue("recentCommands", list);
 
     set.setValue("interface", ui->comboInterface->currentText());
+
+    QStringList hotkeys;
+    for (int i = 0; i < 10; ++i)
+    {
+        hotkeys.append(QString("F%1:%2").arg(i+1).arg("tbd"));
+    }
+    set.setValue("hotkeys", hotkeys);
 }
 
 bool frmMain::saveChanges(bool heightMapMode)

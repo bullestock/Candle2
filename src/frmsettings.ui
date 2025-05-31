@@ -1587,6 +1587,19 @@ QGroupBox {
            </layout>
           </widget>
          </item>
+         <item>
+          <widget class="GroupBox" name="grpHotkeys">
+           <property name="title">
+            <string>Hotkeys</string>
+           </property>
+           <layout class="QVBoxLayout">
+             <item>
+               <widget class="QTreeWidget" name="hotkeysTree">
+               </widget>
+             </item>
+           </layout>
+          </widget>
+         </item>
         </layout>
        </widget>
       </widget>
