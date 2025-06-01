@@ -108,6 +108,18 @@ bool frmMain::eventFilter(QObject *obj, QEvent *event)
                 {
                     ui->slbSpindle->setSliderPosition(ui->slbSpindle->sliderPosition() - 1);
                 }
+                else if (keyEvent->key() == Qt::Key_F1)
+                {
+                    ui->cboJogStep->setCurrentIndex(0);
+                }
+                else if (keyEvent->key() == Qt::Key_F2)
+                {
+                    ui->cboJogStep->setCurrentIndex(1);
+                }
+                else if (keyEvent->key() == Qt::Key_F3)
+                {
+                    ui->cboJogStep->setCurrentIndex(2);
+                }
             }
 
             if (obj == ui->tblProgram && m_processingFile)
